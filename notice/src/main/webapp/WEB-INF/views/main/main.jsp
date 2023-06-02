@@ -9,6 +9,7 @@
 <body>
 <div align="center">
 	<h1>Welcome to My Home</h1>
+	<a href = "noticeList.do">게시글 목록</a>
 </div>
 </body>
 </html>

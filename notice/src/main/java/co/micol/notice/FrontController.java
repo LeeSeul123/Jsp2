@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.micol.notice.command.NoticeList;
 import co.micol.notice.common.Command;
 import co.micol.notice.main.command.MainCommand;
 
@@ -39,6 +40,7 @@ public class FrontController extends HttpServlet {
 		//처음 시작될 때 동작하는 메소드(한번만 수행. 그다음부터는 service()만 수행), 요청한 것을 담아두는 곳
 		map.put("/main.do", new MainCommand()); //처음 들어오는 페이지를 돌려준다. 구현체로 실어놓음
 		//여기에 추가하면 기능이 추가됨. 인터페이스도 만들어줘야함
+		map.put("/noticeList.do", new NoticeList());
 	}
 
 	/**
