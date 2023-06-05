@@ -43,11 +43,7 @@
   </dependencies>
   <!-- compile 또는 build(배포) 옵션 -->
   <build>
-  	<resources>
-  		<resource>
-  			<directory>src/main/resources</directory>
-  		</resource>
-  	</resources>
+  	
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -71,6 +67,11 @@
           <version>2.8.2</version>
         </plugin>
       </plugins>
+      <resources>
+  		<resource>
+  			<directory>src/main/resources</directory>
+  		</resource>
+  	</resources>
   </build>
   
   

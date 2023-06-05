@@ -19,4 +19,8 @@
 		DELETE FROM notice
 		WHERE notice_id = #{noticeId}
 	</delete>
+	<select id="memberLogin" resultType = "co.micol.notice.member.service.MemberVO">
+		SELECT * FROM member
+		WHERE member_id = #{memberId} and member_pw = #{memberPW}
+	</select>
 </mapper>

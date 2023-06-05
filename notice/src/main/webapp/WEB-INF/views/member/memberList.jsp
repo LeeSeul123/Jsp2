@@ -10,10 +10,31 @@
 <body>
 <div align = "center">
 	<div><h1>회원 목록 보기</h1></div>
-	<div>
-		<c:forEach items = "${members }" var = "m">
-			${m.memberId } : ${m.memberName } : ${m.memberAge } : ${m.memberTel } : ${m.memberGender} <br><!-- vo객체명을 그대로 쓴다 -->
+	<thead>
+		<tr>
+			<th width="150">아이디</th>
+			<th width="150">이름</th>
+			<th width="150">나이</th>
+			<th width="150">전화번호</th>
+			<th width="150">성별</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items = "${members }" var="m">
+			<tr>
+				<td align = "center">${m.memberId }</td>
+				<td align = "center">${m.memberName }</td>
+				<td align = "center">${m.memberAge }</td>
+				<td align = "center">${m.memberTel }</td>
+				<td align = "center">${m.memberGender }</td>
+				</tr>
 		</c:forEach>
+	</tbody>
+	<div>
+		<a href="memberJoin.do">회원가입</a>
+	<div>
+		<jsp:include page="../main/footer.jsp"></jsp:include>
+	</div>
 	</div>
 </div>
 </body>

@@ -8,9 +8,15 @@
 		SELECT * FROM member
 		WHERE member_id = #{memberId}
 	</select>
-	<insert id = "memberInsert"></insert>
+	<insert id = "memberInsert">
+		INSERT INTO member
+		VALUES(#{memberId}, #{memberPw}, #{memberName},#{memberAge},#{memberTel},#{memberGender})
+	</insert>
 	<update id = "memberUpdate"></update>
 	<delete id = "memberDelete"></delete>
-
+	<select id = "memberLogin" resultType = "co.micol.notice.member.service.MemberVO">
+		SELECT * FROM member
+		WHERE member_id = #{memberId} AND member_pw = #{memberPw}
+	</select>
 
 </mapper>
