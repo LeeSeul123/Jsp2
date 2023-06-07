@@ -11,47 +11,50 @@
 		<jsp:include page="../main/menu.jsp"/>
 	</div>
 	<div align="center">
-		<h1>게시글 등록</h1>
+		<h1>게시글 수정</h1>
 	</div>
 	<div align="center">
-		<form id="frm" action="noticeInsert.do" method="post">
+		<form id="frm" action="noticeUpdate.do" method="post">
 			<div>
 				<table border="1">
 					<tr>
 						<th width="150">작성자</th>
 						<td width="150">
-							<input type="text" id="noticeWriter" name="noticeWriter" value="${name }" readOnly>
+							<!-- 수정하면 안되는거라서 -->
+							${notice.noticeWriter}     
 						</td>
 						<th width="150">작성일자</th>
 						<td width="150">
-							<input type="date" id="noticeWdate" name="noticeWdate" readOnly>
+							<input type="date" id="noticeWdate" name="noticeWdate" value="${notice.noticeWdate }">
 						</td>
 					</tr>
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input type="text" id="noticeTitle" name="noticeTitle" size="70" required>
+							<input type="text" id="noticeTitle" name="noticeTitle" size="70" value="${notice.noticeTitle }">
 						</td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td colspan="3">
-							<textarea rows="10" cols="97" id="noticeSubject" name="noticeSubject" placeholder="내용을 입력해주세요." required></textarea>
+							<textarea rows="10" cols="97" id="noticeSubject" name="noticeSubject" placeholder="내용을 입력해주세요." required>${notice.noticeSubject }</textarea>
 						</td>
 					</tr>
 				</table>
 			</div>
 			<br>
 			<div>
-				<input type="submit" value="등록">&nbsp;&nbsp;
+			<!-- key(notice_id를 넘겨야 하므로 hidden form이용) -->
+				<input type="hidden" name="noticeId" value="${notice.noticeId }">
+			</div>
+			<div>
+				<input type="submit" value="저장">&nbsp;&nbsp;
 				<input type="reset" value="취소">&nbsp;&nbsp;
 				<input type="button" value="목록" onclick="location.href='noticeList.do'">
 			</div>
 		</form>
 	</div>
 	<jsp:include page="../main/footer.jsp"/>
-<script>
-  document.getElementById('noticeWdate').value = new Date().toISOString().substring(0, 10);
-</script>	
+
 </body>
 </html>

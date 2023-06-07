@@ -9,18 +9,27 @@
 		WHERE notice_id = #{noticeId}
 	</select>
 	<insert id= "noticeInsert" parameterType = "co.micol.notice.service.NoticeVO">
+		<selectKey keyProperty="noticeId" resultType = "int" order="BEFORE">
+			select max(notice_id) +1 as noticeId FROM notice	
+		</selectKey>
 		INSERT INTO notice
 		VALUES(#{noticeId},#{noticeWriter},#{noticeTitle},#{noticeSubject}, #{noticeWdate}, 0)
 	</insert>
-	<update id = "noticeUpdate"> <!-- 구현체가 이거 -->
 	
+	<update id = "noticeUpdate"> <!-- 구현체가 이거 -->
+		UPDATE notice
+		<set>
+		<!-- if문 -> test에는 실려오는 VO객체명 그대로 쓴다. 값이 실려오면 동일한 값이든 아니든 그값으로 변경해라 -->
+			<if test="noticeWriter != null">NOTICE_WRITER = #{noticeWriter}, </if>
+			<if test="noticeTitle != null">NOTICE_TITLE = #{noticeTitle}, </if>
+			<if test="noticeWdate != null">notice_wdate = #{noticeWdate}, </if>
+			<if test="noticeSubject != null">notice_subject = #{noticeSubject} </if>
+		</set>
+		WHERE notice_id = #{noticeId}
 	</update>
 	<delete id = "noticeDelete">
 		DELETE FROM notice
 		WHERE notice_id = #{noticeId}
 	</delete>
-	<select id="memberLogin" resultType = "co.micol.notice.member.service.MemberVO">
-		SELECT * FROM member
-		WHERE member_id = #{memberId} and member_pw = #{memberPW}
-	</select>
+	
 </mapper>

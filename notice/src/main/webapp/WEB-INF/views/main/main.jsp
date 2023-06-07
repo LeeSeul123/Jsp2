@@ -16,6 +16,9 @@
 		<h1>Welcome to My Web Site</h1>
 	</div>
 	<div>
+		<img alt="배경화면" src="img/myhome.jpg" width="100" height="100">
+	</div>
+	<div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </div>

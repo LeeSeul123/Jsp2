@@ -15,7 +15,7 @@ public class NoticeList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		//게시글 목록 가져오기
+		//게시글 목록 가져오기(비즈니스 로직)
 		NoticeService ns = new NoticeServiceImpl(); //DAO. 즉 모델을 호출
 		List<NoticeVO> notices = new ArrayList<>(); //모델 호출한 결과를 담을 것
 		notices = ns.noticeSelectList();

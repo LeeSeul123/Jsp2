@@ -7,6 +7,10 @@
 	<select id = "memberSelect" resultType = "co.micol.notice.member.service.MemberVO">
 		SELECT * FROM member
 		WHERE member_id = #{memberId}
+		<!-- pw까지 넘어오면 여기 수행. 하나의 select문으로 2가지 역할(멤버 한명 가져오기, 로그인기능) -->
+		<!--  <if test="memberPw != null">
+			AND MEMBER_PW = #{memberPw}
+		</if>-->
 	</select>
 	<insert id = "memberInsert">
 		INSERT INTO member

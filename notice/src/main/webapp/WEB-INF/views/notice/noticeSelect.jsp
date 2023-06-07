@@ -41,6 +41,7 @@
 		<br>
 		<div>
 			<c:if test="${name eq notice.noticeWriter }">
+				<!-- 하나의 메소드로 만들기 위해서 E와 D로 나눔. E면 edit.do 호출, D면 delete.do호출. 실어가는 값은 noticeId로 같음 -->
 				<button type="button" onclick="callFunction('E')">수정</button>&nbsp;&nbsp;
 				<button type="button" onclick="callFunction('D')">삭제</button>&nbsp;&nbsp;
 			</c:if>
@@ -49,6 +50,24 @@
 		<div>
 			<jsp:include page="../main/footer.jsp"/>
 		</div>
+		<div>
+			<!-- action은 E냐 D에 따라 액션이 달라지므로 적지않음. javascript에서 frm.action으로 설정 -->
+			<form id="frm" method="post">
+				<input type="hidden" id="noticeId" name="noticeId" value="${notice.noticeId }"><!-- noticeId는 같이 넘어가야하므로 히든폼에 noticeId를 담는다id와 name은 vo객체명 그대로 쓴다 -->
+			</form>
+		</div>
 	</div>
+	<script type="text/javascript">
+		function callFunction(str){
+			let frm = document.getElementById("frm");
+			if(str=='E'){
+				frm.action = "noticeEdit.do"; //액션 = 동작되는 것. 폼객체가 가지고 있는 action속성에 noticeEdit을 담아라
+			} else {
+				frm.action = "noticeDelete.do";
+			}
+			
+			frm.submit(); //이폼이 전송
+		}
+	</script>
 </body>
 </html>

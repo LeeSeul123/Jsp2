@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.micol.notice.command.NoticeDelete;
+import co.micol.notice.command.NoticeEdit;
+import co.micol.notice.command.NoticeInsert;
 import co.micol.notice.command.NoticeInsertForm;
 import co.micol.notice.command.NoticeList;
 import co.micol.notice.command.NoticeSelect;
+import co.micol.notice.command.NoticeUpdate;
 import co.micol.notice.common.Command;
 import co.micol.notice.main.command.MainCommand;
 import co.micol.notice.member.command.AjaxCheckId;
@@ -52,6 +56,10 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeList()); //게시글 목록보기
 		map.put("/noticeSelect.do", new NoticeSelect()); //게시글 상세보기
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); //게시글 작성 폼 호출
+		map.put("/noticeInsert.do", new NoticeInsert());	//게시글 등록
+		map.put("/noticeEdit.do", new NoticeEdit()); 	//게시글 수정할 수 있는 폼을 호출
+		map.put("/noticeUpdate.do", new NoticeUpdate()); //게시글을 DB에 수정작업
+		map.put("/noticeDelete.do", new NoticeDelete()); //게시글 삭제
 		map.put("/memberList.do", new MemberList()); //멤버 목록보기
 		map.put("/memberJoin.do", new MemberJoin()); //회원가입 화면 호출
 		map.put("/memberInsert.do", new MemberInsert()); //회원가입 수행
