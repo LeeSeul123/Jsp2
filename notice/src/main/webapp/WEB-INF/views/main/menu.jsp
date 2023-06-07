@@ -6,29 +6,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	
+	#topMenu ul{
+		width : 1000px;
+		margin: 0 auto;
+		list-style:none;
+		display: flex;
+		justify-content : space-around;
+		background-color: black;
+	}
+	#topMenu li{
+		padding: 10px;
+	}
+	#topMenu a{
+		color: white;
+		text-decoration : none;
+	}
+</style>
 </head>
 <body>
-	<div>
-		<nav id="topMenu">
-			<ul>
-				<li><a class="menulink" href="noticeList.do">게시글 목록</a></li>
-				<li><a class="menulink" href="memberList.do">멤버 목록</a></li>
-				<c:if test="${empty id }"><!-- id가 비어있으면 얘를 뿌려라. 이때 id는 session변수 -->
-					<li><a class="menulink" href="memberJoin.do">회원가입</a></li>
-				</c:if>
-				<li><a class="menulink" href="#"></a></li>
-				<li><a class="menulink" href="#"></a></li>
-				<c:if test="${empty id }">
-					<li><a class="menulink" href="memberList.do">로그인</a></li>	
-				</c:if>
-				<c:if test="${not empty id }">
-					<li><a class="menulink" href="#">로그아웃</a></li>	
-				</c:if>
-				<c:if test="${not empty name }">
-					<li><a class="menulink" href="#">"${name }"님 로그인</a></li>	
-				</c:if>
-			</ul>
-		</nav>
-	</div>
+<div>
+	<nav id="topMenu">
+		<ul>
+			<li><a class="menuLink" href="main.do">Home</a></li>
+			<li><a class="menuLink" href="noticeList.do">Notice</a></li>
+			<c:if test="${empty id }">
+				<li><a class="menuLink" href="memberJoin.do">MemberJoin</a></li>
+			</c:if>				
+			<li><a class="menuLink" href="memberList.do">Member</a></li>
+			<li><a class="menuLink" href="#">일단보류</a></li>
+			<li><a class="menuLink" href="#">이단보류</a></li>
+			<c:if test="${empty id }">
+				<li><a class="menuLink" href="memberLoginForm.do">Login</a></li>
+			</c:if>
+			<c:if test="${not empty id }">
+				<li><a class="menuLink" href="memberLogout.do">Logout</a></li>
+			</c:if>
+			<c:if test="${not empty name }">
+				<li><a class="menuLink" href="#">${name }님 로그인</a></li>
+			</c:if>
+		</ul>
+	</nav>
+</div>
 </body>
 </html>

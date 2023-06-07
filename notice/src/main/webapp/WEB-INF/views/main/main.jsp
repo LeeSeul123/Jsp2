@@ -10,14 +10,11 @@
 <body>
 <div align="center">
 	<div>
-		<jsp:include page="menu.jsp"></jsp:include>
+		<jsp:include page="menu.jsp" />
 	</div>
-
-	<h1>Welcome to My Home</h1>
-	<a href = "noticeList.do">게시글 목록</a>
-	<br>
-	<a href = "memberList.do">멤버목록 보기</a>
-	<a href = "memberLoginForm.do">로그인</a>
+	<div>
+		<h1>Welcome to My Web Site</h1>
+	</div>
 	<div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
